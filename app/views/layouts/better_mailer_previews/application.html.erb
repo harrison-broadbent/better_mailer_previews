@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Better mailer previews</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-
-  <%= stylesheet_link_tag    "better_mailer_previews/application", media: "all" %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Better mailer previews</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "better_mailer_previews/application", media: "all" %>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .wrap { width: 300px; height: 450px; padding: 0; overflow: hidden; }
+      .frame { width: 600px; height: 900px; border: 1px solid black; }
+      .frame { transform: scale(0.5); transform-origin: 0 0; }
+    </style>
+  </head>
+  <body class="w-full h-full p-20 bg-gray-50">
+    <%= yield %>
+  </body>
 </html>
