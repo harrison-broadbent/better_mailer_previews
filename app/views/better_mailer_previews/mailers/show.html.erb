@@ -1,4 +1,20 @@
-<h1 class="text-5xl font-medium tracking-tighter"><%= @mailer_name.titleize %> — <%= @email_type.titleize %></h1>
+<div class="w-full flex justify-between items-end">
+  <h1 class="text-5xl font-medium tracking-tighter"><%= @mailer_name.titleize %> — <%= @email_type.titleize %></h1>
+  <div class="">
+    <%= form_with url: send_mailer_email_path(mailer_name: @mailer_name, email_type: @email_type),
+                method: :post,
+                local: true,
+                class: "flex items-end gap-x-2" do |form| %>
+      <div class="flex-1">
+        <%= form.text_field :email_address, placeholder: "email address...", class: "border text-sm px-1 py-0.5 bg-gray-50 rounded-sm", required: true %>
+      </div>
+      <div>
+        <%= form.submit "Send Email", class: "text-sm border px-1 py-0.5 hover:bg-gray-200 hover:cursor-pointer rounded-sm" %>
+      </div>
+    <% end %>
+    <p class="text-xs text-gray-400 mt-1 w-64"><%= flash[:notice] %></p>
+  </div>
+</div>
 <div class="flex my-4 py-4 border gap-x-8 items-center">
   <div class="w-3/4 pr-12 pb-4 border-r-2 resize-x overflow-auto">
     <div class="shrink-0 flex items-center bg-gray-950 py-2 px-4 z-10 rounded-t-lg">
