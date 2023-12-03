@@ -5,8 +5,9 @@ This gem/engine builds on top of native Rails mailer previews, with a few key en
 
 - Shows _all_ your previews _live_ on the homepage
 - Easily resize individual mailers, for testing responsive layouts
+- Fully compatible with, and can live alongside, native [Rails ActionMailer Previews](https://guides.rubyonrails.org/action_mailer_basics.html#previewing-emails)
 
-Watch the demo &darr;
+Here's a little demo I've put together &darr;
 
 <p align="center">
   <kbd>
@@ -15,7 +16,7 @@ Watch the demo &darr;
 </p>
 
 ## Getting Started
-Add this line to the development group in your application's Gemfile:
+1. Add this line to the development group in your application's Gemfile:
 
 ```ruby
 group :development do
@@ -24,12 +25,12 @@ group :development do
 end
 ```
 
-And then execute:
+2. And then execute:
 ```bash
 $ bundle
 ```
 
-Finally, you need to mount this engine in your `routes.rb` file — 
+3. Finally, you need to mount this engine in your `routes.rb` file — 
 
 ```ruby
 # routes.rb
@@ -39,6 +40,9 @@ Rails.application.routes.draw do
   ...
 end
 ```
+
+4. Run your Rails app, and visit [localhost:3000/better_mailer_previews](localhost:3000/better_mailer_previews).
+5. Profit ✨
 
 ## How can I get previews to show up for my mailers? 
 
