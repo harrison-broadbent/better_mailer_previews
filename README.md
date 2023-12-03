@@ -11,13 +11,13 @@ Here's a little demo I've put together &darr;
 
 <p align="center">
   <kbd>
-    <img width=640 src="https://github.com/harrison-broadbent/better_mailer_previews/assets/5293153/437aaefc-a9f4-4bc1-8ac9-dd02e59cdcc9" />
+    <img width=640 src="https://github.com/harrison-broadbent/better_mailer_previews/assets/5293153/07f8ee5c-2363-4d73-a3d6-00376a2d2c6e" />
   </kbd>
 </p>
 
 ## Why did I build this? 
 
-I use native Rails mailer previews extensively for building my [ActionMailer email templates](https://railsnotesui.xyz), and I always found them pretty barebones and lacking. In particular, I wanted a way to bulk-preview templates (rather than checking them one by one). I also wanted to be able to easily resize the email container for testing responsive layouts. 
+I've used native Rails mailer previews extensively for building my [ActionMailer email templates](https://railsnotesui.xyz), but they're pretty barebones and lacking. In particular, I wanted a way to bulk-preview templates (rather than checking them one by one). I also wanted to be able to easily resize the email container for testing responsive layouts. 
 
 This gem is my idea brought to life, and I hope you'll find it useful!
 
