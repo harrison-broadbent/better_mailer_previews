@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 end
 ```
 
-4. Run your Rails app, and visit [localhost:3000/better_mailer_previews](localhost:3000/better_mailer_previews).
+4. Run your Rails app, and visit `localhost:3000/better_mailer_previews`.
 5. Profit ✨
 
 ## How can I get previews to show up for my mailers? 
