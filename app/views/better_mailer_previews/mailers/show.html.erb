@@ -1,0 +1,28 @@
+<h1 class="text-5xl font-medium tracking-tighter"><%= @mailer_name.titleize %> — <%= @email_type.titleize %></h1>
+<div class="flex my-4 py-4 border gap-x-8 items-center">
+  <div class="w-3/4 pr-12 pb-4 border-r-2 resize-x overflow-auto">
+    <div class="shrink-0 flex items-center bg-gray-950 py-2 px-4 z-10 rounded-t-lg">
+      <div class="hidden sm:block shrink-0 mr-2 h-4 w-4 bg-gray-600 rounded-full"></div>
+      <div class="hidden sm:block shrink-0 mr-2 h-4 w-4 bg-gray-600 rounded-full"></div>
+      <div class="hidden sm:block shrink-0 mr-2 h-4 w-4 bg-gray-600 rounded-full"></div>
+      <div class="flex-grow flex items-center justify-center sm:ml-6 sm:mr-24 py-2 px-4 bg-gray-600 rounded-full leading-5 text-sm text-gray-200 text-center truncate">
+        <div class="truncate"><span class="font-medium text-gray-100">Mailer Preview</span> — <%= "#{@mailer_name}/#{@email_type}" %></div>
+      </div>
+    </div>
+    <div class="bg-gray-950 px-2 rounded-b-lg pb-2">
+      <iframe src=<%= @url_for_mailer %> frameborder="0" class="w-full h-[75vh] rounded-md"></iframe>
+    </div>
+  </div>
+  <div class="w-1/4">
+    <div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[640px] w-[320px] shadow-xl">
+      <div class="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+      <div class="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
+      <div class="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
+      <div class="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
+      <div class="rounded-[2rem] overflow-hidden w-[292px] h-[612px] bg-white dark:bg-gray-800">
+        <iframe src=<%= @url_for_mailer %> frameborder="0" class="w-[292px] h-[612px]"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "footer" %>
