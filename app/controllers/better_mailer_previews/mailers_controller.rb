@@ -50,7 +50,7 @@ module BetterMailerPreviews
         body: html_content,
       ).deliver_now
 
-      flash[:notice] = "sent #{preview_class.to_s}.#{preview_method} to #{email_address} [via #{Rails.application.config.action_mailer.delivery_method}]"
+      flash[:notice] = "sent to #{email_address} (via #{Rails.application.config.action_mailer.delivery_method})"
       redirect_back(fallback_location: root_path)
     end
   end
