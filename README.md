@@ -6,7 +6,7 @@ This gem/engine builds on top of native Rails mailer previews, with a few key en
 
 - **Shows _all_ your previews _live_ on the homepage**
 - **Easily resize individual mailers, for testing responsive layouts**
-- **Send emails to yourself (using your default ActionMailer delivery method).**
+- **Forward your previews to an email address (uses the default ActionMailer delivery method for your app).**
 - **Fully compatible with, and can live alongside, native [Rails ActionMailer Previews](https://guides.rubyonrails.org/action_mailer_basics.html#previewing-emails)**
 
 Here's a little demo I've put together &darr;
