@@ -2,9 +2,9 @@
   <h1 class="text-5xl font-medium tracking-tighter"><%= @mailer_name.titleize %> — <%= @email_type.titleize %></h1>
   <div class="">
     <%= form_with url: send_mailer_email_path(mailer_name: @mailer_name, email_type: @email_type),
-                method: :post,
-                local: true,
-                class: "flex items-end gap-x-2" do |form| %>
+                  method: :post,
+                  local: true,
+                  class: "flex items-end gap-x-2" do |form| %>
       <div class="flex-1">
         <%= form.text_field :email_address, placeholder: "email address...", class: "border text-sm px-1 py-0.5 bg-gray-50 rounded-sm", required: true %>
       </div>
