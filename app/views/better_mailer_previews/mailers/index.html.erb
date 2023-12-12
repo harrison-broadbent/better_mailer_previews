@@ -13,7 +13,7 @@
         <% urls.each do |url| %>
           <div class="flex flex-col space-y-4 wrap">
             <iframe src=<%= url %> frameborder="0" class="frame border border-gray-300" loading="lazy"></iframe>
-            <%= link_to "Preview #{url.split('/')[-2...].map { |segment| segment.split('_').map(&:capitalize).join }.join('.')} →", url.split('/')[-2...].join('/').prepend("/better_mailer_previews/"), class: "!-mt-[400px] hover:underline" %>
+            <%= link_to "Preview #{url.split('/')[-2...].map { |segment| segment.split('_').map(&:capitalize).join }.join('.')} →", url.split('/')[-2...].join('/').prepend("#{BetterMailerPreviews::Engine.routes.find_script_name({})}/"), class: "!-mt-[400px] hover:underline" %>
           </div>
         <% end %>
       </div>
