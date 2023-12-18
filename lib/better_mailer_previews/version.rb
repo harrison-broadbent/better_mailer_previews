@@ -1,3 +1,3 @@
 module BetterMailerPreviews
-  VERSION = "0.2.30"
+  VERSION = "1.0.0"
 end
