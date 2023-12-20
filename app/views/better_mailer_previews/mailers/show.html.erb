@@ -1,7 +1,7 @@
 <div class="w-full flex justify-between items-end">
-  <h1 class="text-5xl font-medium tracking-tighter"><%= @mailer_name.titleize %> — <%= @email_type.titleize %></h1>
+  <h1 class="text-5xl font-medium tracking-tighter"><%= @mailer_path.titleize %> — <%= @email_type.titleize %></h1>
   <div class="">
-    <%= form_with url: send_mailer_email_path(mailer_name: @mailer_name, email_type: @email_type),
+    <%= form_with url: send_mailer_email_path(mailer_path: @mailer_path, email_type: @email_type),
                   method: :post,
                   local: true,
                   class: "flex items-end gap-x-2" do |form| %>
@@ -22,7 +22,7 @@
       <div class="hidden sm:block shrink-0 mr-2 h-4 w-4 bg-gray-600 rounded-full"></div>
       <div class="hidden sm:block shrink-0 mr-2 h-4 w-4 bg-gray-600 rounded-full"></div>
       <div class="flex-grow flex items-center justify-center sm:ml-6 sm:mr-24 py-2 px-4 bg-gray-600 rounded-full leading-5 text-sm text-gray-200 text-center truncate">
-        <div class="truncate"><span class="font-medium text-gray-100">Mailer Preview</span> — <%= "#{@mailer_name}/#{@email_type}" %></div>
+        <div class="truncate"><span class="font-medium text-gray-100">Mailer Preview</span> — <%= "#{@mailer_path}/#{@email_type}" %></div>
       </div>
     </div>
     <div class="bg-gray-950 px-2 rounded-b-lg pb-2">

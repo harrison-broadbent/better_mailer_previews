@@ -1,13 +1,17 @@
 module BetterMailerPreviews
   module ApplicationHelper
 
-    # For generating mailer preview link names on mailers/index
+    # For generating mailer preview link names on mailers/index,
+    # including namespaced methods.
     #
     # input: "/rails/mailers/invoice_mailer/saas"
     # output: "Preview InvoiceMailer.SaaS →"
     #
     def preview_text_for_url(url)
-      pretty_mailer_preview_name = url.split("/")[-2...].map { |segment| segment.split("_").map(&:capitalize).join }.join(".")
+      camelized = url.split("/")[3...].map { |element| element.camelize }
+      last_element = camelized.pop
+      pretty_mailer_preview_name = camelized.join("/") + "." + last_element
+
       return "Preview #{pretty_mailer_preview_name} →"
     end
 
@@ -18,7 +22,7 @@ module BetterMailerPreviews
     #
     def preview_path_for_url(url)
       mounted_engine_path = BetterMailerPreviews::Engine.routes.find_script_name({})
-      url.split("/")[-2...].join("/").prepend("#{mounted_engine_path}/")
+      url.split("/")[3..].join("/").prepend("#{mounted_engine_path}/")
     end
   end
 end
