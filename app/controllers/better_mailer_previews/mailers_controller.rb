@@ -20,23 +20,25 @@ module BetterMailerPreviews
     end
 
     def show
-      @mailer_name = params[:mailer_name]
+      @mailer_path = params[:mailer_path]
       @email_type = params[:email_type]
 
-      @url_for_mailer = "/rails/mailers/#{@mailer_name}/#{@email_type}"
+      @url_for_mailer = "/rails/mailers/#{@mailer_path}/#{@email_type}"
     end
 
     def send_email
-      # mailer_name: underscore_case of base mailer name | invoice_mailer
+      # mailer_path: underscore_case of base mailer path | test/invoice_mailer
       # email_type: string mailer method to call on class | "round"
       # email_address: string email address to send to | "test@t.com"
-      mailer_name = params[:mailer_name]
+      mailer_path = params[:mailer_path]
       email_type = params[:email_type]
       email_address = params[:email_address]
 
       # Instantiate the preview class (ie: InvoiceMailerPreview),
       # then render it's preview html into a string.
-      preview_class = mailer_name.concat("_preview").camelize.constantize
+      preview_class_string = mailer_path.split("/").map(&:camelize).join("::").concat("Preview")
+      preview_class = preview_class_string.constantize
+
       preview_method = email_type.to_sym
       mail = preview_class.new.public_send(preview_method).message
       html_content = mail.body.decoded
@@ -46,7 +48,7 @@ module BetterMailerPreviews
         content_type: "text/html",
         from: "better-mailer-previews@railsnotes.xyz",
         to: email_address,
-        subject: "#{preview_class.to_s}.#{preview_method} (via BetterMailerPreviews)",
+        subject: "#{preview_class_string}.#{preview_method} (via BetterMailerPreviews)",
         body: html_content,
       ).deliver_now
 
