@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    better_mailer_previews (1.0.1)
+    better_mailer_previews (1.0.2)
       rails (>= 5.0.0)
 
 GEM
