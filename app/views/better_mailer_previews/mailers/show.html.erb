@@ -1,5 +1,8 @@
 <div class="w-full flex justify-between items-end">
-  <h1 class="text-5xl font-medium tracking-tighter"><%= @mailer_path.titleize %> — <%= @email_type.titleize %></h1>
+  <div class="flex flex-col">
+    <%= link_to '← home', root_path, class: "text-sm text-gray-400 w-fit hover:text-gray-700 hover:underline" %>
+    <h1 class="text-5xl font-medium tracking-tighter"><%= @mailer_path.titleize %> — <%= @email_type.titleize %></h1>
+  </div>
   <div class="">
     <%= form_with url: send_mailer_email_path(mailer_path: @mailer_path, email_type: @email_type),
                   method: :post,
@@ -15,7 +18,7 @@
     <p class="text-xs text-gray-400 mt-1 w-64"><%= flash[:notice] %></p>
   </div>
 </div>
-<div class="flex my-4 py-4 border gap-x-8 items-center">
+<div class="flex mt-6 mb-4 py-4 border gap-x-8 items-center">
   <div class="w-3/4 pr-12 pb-4 border-r-2 resize-x overflow-auto">
     <div class="shrink-0 flex items-center bg-gray-950 py-2 px-4 z-10 rounded-t-lg">
       <div class="hidden sm:block shrink-0 mr-2 h-4 w-4 bg-gray-600 rounded-full"></div>
