@@ -9,7 +9,7 @@
                   local: true,
                   class: "flex items-end gap-x-2" do |form| %>
       <div class="flex-1">
-        <%= form.text_field :email_address, placeholder: "email address...", class: "border text-sm px-1 py-0.5 bg-gray-50 rounded-sm", required: true %>
+        <%= form.text_field :email_address, value: @email_address, placeholder: "email address...", class: "border text-sm px-1 py-0.5 bg-gray-50 rounded-sm", required: true %>
       </div>
       <div>
         <%= form.submit "Send Email", class: "text-sm border px-1 py-0.5 hover:bg-gray-200 hover:cursor-pointer rounded-sm" %>
