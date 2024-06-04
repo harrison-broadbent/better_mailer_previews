@@ -3,13 +3,12 @@ module BetterMailerPreviews
     layout "better_mailer_previews/application"
 
     def index
-      mailer_previews = ActionMailer::Preview.all
-      preview_emails = mailer_previews.map do |preview|
+      preview_emails_to_render = ActionMailer::Preview.all.map do |preview|
         { preview: preview, emails: preview.emails }
       end
 
       @urls_by_mailer = {}
-      preview_emails.each do |entry|
+      preview_emails_to_render.each do |entry|
         mailer_name = entry[:preview].name.underscore.gsub("_preview", "")
         urls = entry[:emails].map do |email|
           email_name = email.underscore
@@ -24,7 +23,9 @@ module BetterMailerPreviews
       @email_type = params[:email_type]
       @email_address = cookies[:better_mailer_previews_email_address]
 
+      # construct URL for <iframe>, passing through any query params
       @url_for_mailer = "/rails/mailers/#{@mailer_path}/#{@email_type}"
+      @url_for_mailer += "?#{request.query_string}" unless request.query_string.empty?
     end
 
     def send_email
@@ -35,6 +36,7 @@ module BetterMailerPreviews
       email_type = params[:email_type]
       email_address = params[:email_address]
 
+      # save email in a cookie so we can re-populate the form
       cookies[:better_mailer_previews_email_address] = email_address
 
       # Instantiate the preview class (ie: InvoiceMailerPreview),
