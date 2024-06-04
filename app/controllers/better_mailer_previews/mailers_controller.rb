@@ -22,6 +22,7 @@ module BetterMailerPreviews
     def show
       @mailer_path = params[:mailer_path]
       @email_type = params[:email_type]
+      @email_address = cookies[:better_mailer_previews_email_address]
 
       @url_for_mailer = "/rails/mailers/#{@mailer_path}/#{@email_type}"
     end
@@ -33,6 +34,8 @@ module BetterMailerPreviews
       mailer_path = params[:mailer_path]
       email_type = params[:email_type]
       email_address = params[:email_address]
+
+      cookies[:better_mailer_previews_email_address] = email_address
 
       # Instantiate the preview class (ie: InvoiceMailerPreview),
       # then render it's preview html into a string.
